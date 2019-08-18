@@ -11,6 +11,10 @@
   border: 1px solid #d8d8d8;
 }
 
+.form-element:focus-within {
+  border-color: #000;
+}
+
 .form-element,
 .search-input {
   width: 100%;
