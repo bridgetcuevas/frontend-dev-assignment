@@ -12,8 +12,19 @@ class SearchFormContainer extends Component {
     });
   }
 
+  handleBlur() {
+    this.setState({
+      active: false
+    });
+  }
+
   render() {
-    return <SearchForm onFocus={this.handleFocus.bind(this)} />;
+    return (
+      <SearchForm
+        onFocus={this.handleFocus.bind(this)}
+        onBlur={this.handleBlur.bind(this)}
+      />
+    );
   }
 }
 
