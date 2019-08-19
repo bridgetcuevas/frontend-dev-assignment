@@ -1,9 +1,9 @@
 import React from "react";
 import IosSearch from "../../node_modules/react-ionicons/lib/IosSearch";
 import MdClose from "../../node_modules/react-ionicons/lib/MdClose";
-import "../css/searchForm.css";
+import "../css/SearchForm.css";
 
-const SearchForm = ({ value, onFocus, onChange, onClear, onBlur }) => {
+const SearchForm = ({ value, onFocus, onChange, onMouseDown, onBlur }) => {
   return (
     <form action="" className="search-form">
       <div className="form-element">
@@ -26,7 +26,7 @@ const SearchForm = ({ value, onFocus, onChange, onClear, onBlur }) => {
           <button
             className="clear-button"
             type="button"
-            onClear={() => onClear()}
+            onMouseDown={(e) => onMouseDown(e)}
           >
             <MdClose color="#777" fontSize="21px" />
           </button>

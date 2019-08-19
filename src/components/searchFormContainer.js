@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import SearchForm from "./searchForm";
+import SearchForm from "./SearchForm";
 
 class SearchFormContainer extends Component {
   state = {
@@ -14,6 +14,7 @@ class SearchFormContainer extends Component {
   }
 
   handleBlur() {
+    console.log('blur');
     this.setState({
       active: false,
       searchQuery: ""
@@ -26,7 +27,9 @@ class SearchFormContainer extends Component {
     });
   };
 
-  handleClear() {
+  handleClear= (e) => {
+    console.log('clear');
+    e.preventDefault();
     this.setState({
       searchQuery: ""
     });
@@ -39,7 +42,7 @@ class SearchFormContainer extends Component {
         onChange={this.handleSearch}
         onFocus={this.handleFocus.bind(this)}
         onBlur={this.handleBlur.bind(this)}
-        onClear={this.handleClear.bind(this)}
+        onMouseDown={this.handleClear.bind(this)}
       />
     );
   }
