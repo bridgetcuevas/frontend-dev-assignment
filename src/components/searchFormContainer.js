@@ -24,13 +24,13 @@ class SearchFormContainer extends Component {
     this.setState({
       searchQuery: query
     });
-  }
+  };
 
   handleClear() {
     this.setState({
       searchQuery: ""
     });
-  } 
+  }
 
   render() {
     return (

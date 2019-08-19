@@ -7,7 +7,6 @@ const SearchForm = ({ value, onFocus, onChange, onClear, onBlur }) => {
   return (
     <form action="" className="search-form">
       <div className="form-element">
-
         <input
           autoComplete="off"
           autoCapitalize="off"
@@ -23,14 +22,18 @@ const SearchForm = ({ value, onFocus, onChange, onClear, onBlur }) => {
           onBlur={() => onBlur()}
         />
 
-        <button className="clear-button" type="button" onClear={() => onClear()}>
-          <MdClose color="#777" fontSize="21px" />
-        </button>
-
+        {value && (
+          <button
+            className="clear-button"
+            type="button"
+            onClear={() => onClear()}
+          >
+            <MdClose color="#777" fontSize="21px" />
+          </button>
+        )}
         <button className="search-button" type="button">
           <IosSearch color="#777" fontSize="17px" />
         </button>
-
       </div>
     </form>
   );
