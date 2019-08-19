@@ -3,7 +3,7 @@ import IosSearch from "../../node_modules/react-ionicons/lib/IosSearch";
 import MdClose from "../../node_modules/react-ionicons/lib/MdClose";
 import "../css/searchForm.css";
 
-const SearchForm = ({ onFocus, onBlur }) => {
+const SearchForm = ({ value, onFocus, onChange, onClear, onBlur }) => {
   return (
     <form action="" className="search-form">
       <div className="form-element">
@@ -17,15 +17,17 @@ const SearchForm = ({ onFocus, onBlur }) => {
           name="query"
           className="search-input"
           placeholder="Zoeken"
+          value={value}
+          onChange={e => onChange(e.currentTarget.value)}
           onFocus={() => onFocus()}
           onBlur={() => onBlur()}
         />
 
-        <button className="clear-button" type="reset">
+        <button className="clear-button" type="button" onClear={() => onClear()}>
           <MdClose color="#777" fontSize="21px" />
         </button>
 
-        <button className="search-button" type="submit">
+        <button className="search-button" type="button">
           <IosSearch color="#777" fontSize="17px" />
         </button>
 

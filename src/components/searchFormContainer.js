@@ -3,7 +3,8 @@ import SearchForm from "./searchForm";
 
 class SearchFormContainer extends Component {
   state = {
-    active: false
+    active: false,
+    searchQuery: ""
   };
 
   handleFocus() {
@@ -14,15 +15,31 @@ class SearchFormContainer extends Component {
 
   handleBlur() {
     this.setState({
-      active: false
+      active: false,
+      searchQuery: ""
     });
   }
+
+  handleSearch = query => {
+    this.setState({
+      searchQuery: query
+    });
+  }
+
+  handleClear() {
+    this.setState({
+      searchQuery: ""
+    });
+  } 
 
   render() {
     return (
       <SearchForm
+        value={this.state.searchQuery}
+        onChange={this.handleSearch}
         onFocus={this.handleFocus.bind(this)}
         onBlur={this.handleBlur.bind(this)}
+        onClear={this.handleClear.bind(this)}
       />
     );
   }
