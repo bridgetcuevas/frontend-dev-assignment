@@ -26,13 +26,13 @@ const SearchForm = ({ value, onFocus, onChange, onMouseDown, onBlur }) => {
           <button
             className="clear-button"
             type="button"
-            onMouseDown={(e) => onMouseDown(e)}
+            onMouseDown={e => onMouseDown(e)}
           >
-            <MdClose color="#777" fontSize="21px" />
+            <MdClose color="#777" fontSize="19px" />
           </button>
         )}
         <button className="search-button" type="button">
-          <IosSearch color="#777" fontSize="17px" />
+          <IosSearch color="#777" fontSize="19px" />
         </button>
       </div>
     </form>

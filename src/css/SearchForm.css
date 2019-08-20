@@ -8,7 +8,10 @@
 .form-element {
   display: flex;
   align-items: flex-center;
+  padding: 0.6rem;
   border: 1px solid #d8d8d8;
+  -webkit-transition: border 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: border 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .form-element:focus-within {
@@ -19,11 +22,7 @@
 .search-input {
   width: 100%;
   height: 100%;
-  font-size: 12px;
-  padding-top:0.5em;
-  padding-bottom: 0.25em;
-  padding-left: 0.4em;
-  padding-right: 0.4em;
+  font-size: 13px;
   letter-spacing: 0.03em;
 }
 
@@ -37,7 +36,15 @@
 }
 
 .clear-button {
-  margin-right: .5em;
+  padding-right: 1em !important;
+}
+
+.search-button,
+.clear-button {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
 }
 
 ::placeholder {

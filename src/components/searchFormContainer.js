@@ -8,13 +8,14 @@ class SearchFormContainer extends Component {
   };
 
   handleFocus() {
+    console.log("focus");
     this.setState({
       active: true
     });
   }
 
   handleBlur() {
-    console.log('blur');
+    console.log("blur");
     this.setState({
       active: false,
       searchQuery: ""
@@ -22,18 +23,19 @@ class SearchFormContainer extends Component {
   }
 
   handleSearch = query => {
+    console.log("query");
     this.setState({
       searchQuery: query
     });
   };
 
-  handleClear= (e) => {
-    console.log('clear');
+  handleClear = e => {
+    console.log("clear");
     e.preventDefault();
     this.setState({
       searchQuery: ""
     });
-  }
+  };
 
   render() {
     return (
