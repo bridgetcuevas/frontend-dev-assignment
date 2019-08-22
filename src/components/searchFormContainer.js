@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
+import bijenkorfTruien from "../services/bijenkorfTruien";
 import SearchForm from "./SearchForm";
 
 class SearchFormContainer extends Component {
@@ -10,28 +10,24 @@ class SearchFormContainer extends Component {
     userInput: ""
   };
 
-  getSuggestions = async (userInput) => {
-    let uri = `http://localhost:3000/search`;
-    if (userInput) {
-      uri = `?search=${userInput}`;
-    }
-    const response = await axios.get(uri, {
+  getSuggestions = async userInput => {
+    const response = await bijenkorfTruien.get("/search", {
       params: { search: userInput }
     });
     this.setState({ suggestions: response.data.suggestions });
-  }
+  };
 
   componentDidMount() {
     this.getSuggestions();
   }
 
-  filterSuggestions = async (userInput) => {
-
+  async filterSuggestions(userInput) {
     const regexLiteral = `(${userInput})(?![^<]*>|[^<>]*</)`;
-    const regexConstructor = new RegExp(regexLiteral, "ig");    
+    const regexConstructor = new RegExp(regexLiteral, "i");
     const suggestionSearchTerms = this.state.suggestions.map(
       suggestion => suggestion.searchterm
     );
+
     return await suggestionSearchTerms
       .map(suggestionSearchTerm => {
         return suggestionSearchTerm.match(regexConstructor);
@@ -48,7 +44,6 @@ class SearchFormContainer extends Component {
 
   handleSearch = async userInput => {
     if (userInput && userInput.length > 2) {
-
       this.setState({
         filteredSuggestions: await this.filterSuggestions(userInput)
       });
