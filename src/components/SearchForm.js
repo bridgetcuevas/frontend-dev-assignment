@@ -3,9 +3,20 @@ import IosSearch from "../../node_modules/react-ionicons/lib/IosSearch";
 import MdClose from "../../node_modules/react-ionicons/lib/MdClose";
 import "../css/SearchForm.css";
 
-const SearchForm = ({ value, onFocus, onChange, onMouseDown, onBlur }) => {
+const SearchForm = ({
+  value,
+  onFocus,
+  onBlur,
+  onChange,
+  onMouseDown,
+  onKeyUp
+}) => {
   return (
-    <form action="" className="search-form">
+    <form
+      className="search-form"
+      onFocus={() => onFocus()}
+      onBlur={() => onBlur()}
+    >
       <div className="form-element">
         <input
           autoComplete="off"
@@ -18,20 +29,19 @@ const SearchForm = ({ value, onFocus, onChange, onMouseDown, onBlur }) => {
           placeholder="Zoeken"
           value={value}
           onChange={e => onChange(e.currentTarget.value)}
-          onFocus={() => onFocus()}
-          onBlur={() => onBlur()}
+          onKeyUp={e => onKeyUp(e.currentTarget.value)}
         />
 
         {value && (
           <button
-            className="clear-button"
             type="button"
+            className="clear-button"
             onMouseDown={e => onMouseDown(e)}
           >
             <MdClose className="md-close" color="#777" fontSize="19px" />
           </button>
         )}
-        <button className="search-button" type="button">
+        <button type="button" className="search-button">
           <IosSearch className="ios-search" color="#777" fontSize="19px" />
         </button>
       </div>
