@@ -1,0 +1,28 @@
+.search-ul {
+  padding-left: 0;
+  margin-top: 0;
+  list-style: none;
+}
+
+.search-li {
+  padding: 0.65rem;
+  text-decoration: none;
+  color: #000;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border: 1px solid #d8d8d8;
+  border-top: none;
+  -webkit-transition: max-height 1s ease-in-out;
+  transition: max-height 1s ease-in-out;
+}
+
+.search-items {
+  display: flex;
+}
+
+.nr-results {
+  color: #777;
+  font-weight: 500;
+  padding-left: 0.3em;
+}

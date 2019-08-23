@@ -80,8 +80,9 @@ class SearchFormContainer extends Component {
 
   render() {
     return (
-      <div>
+      <div className="form-container">
         <SearchForm
+          className="search-form"
           value={this.state.userInput}
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
@@ -89,7 +90,9 @@ class SearchFormContainer extends Component {
           onMouseDown={this.handleClear}
           onKeyUp={this.handleSearch}
         />
+
         <SearchList
+          className="search-list"
           value={this.state.userInput}
           suggestions={this.state.suggestions}
           filteredSuggestions={this.state.filteredSuggestions}

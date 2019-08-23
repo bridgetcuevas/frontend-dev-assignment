@@ -1,4 +1,5 @@
 import React from "react";
+import "../css/SearchList.css";
 
 const SearchList = ({
   suggestions,
@@ -10,17 +11,16 @@ const SearchList = ({
   return (
     <div>
       {value.length > 2 && (
-        <ul className="list-group">
+        <ul className="search-ul">
           {filteredSuggestions.map(suggestion => (
             <li
               key={suggestion[valueProperty]}
-              className={
-                suggestions
-                  ? "list-group-suggestion active"
-                  : "list-group-suggestion"
-              }
+              className={suggestions ? "search-li active" : "search-li"}
             >
-              {suggestion[textProperty]} ({suggestion[valueProperty]})
+              <div className="search-items">
+                <div>{suggestion[textProperty]} </div>
+                <div className="nr-results"> ({suggestion[valueProperty]})</div>
+              </div>
             </li>
           ))}
         </ul>
