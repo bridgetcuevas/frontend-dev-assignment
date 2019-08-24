@@ -5,6 +5,7 @@
 }
 
 .search-li {
+  display: flex;
   padding: 0.65rem;
   text-decoration: none;
   color: #000;
@@ -13,12 +14,6 @@
   letter-spacing: 0.04em;
   border: 1px solid #d8d8d8;
   border-top: none;
-  -webkit-transition: max-height 1s ease-in-out;
-  transition: max-height 1s ease-in-out;
-}
-
-.search-terms {
-  display: flex;
 }
 
 .nr-results,

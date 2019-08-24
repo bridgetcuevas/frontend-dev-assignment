@@ -18,17 +18,6 @@ class SearchFormContainer extends Component {
     this.setState({ suggestions: response.data.suggestions });
   };
 
-  handleSearch = async userInput => {
-    if (userInput && userInput.length > 2) {
-      this.getSuggestions();
-      this.setState({
-        filteredSuggestions: this.state.suggestions
-          .filter(suggestion => suggestion.searchterm.includes(userInput))
-          .slice(0, 4)
-      });
-    }
-  };
-
   handleFocus = () => {
     this.setState({
       active: true
@@ -48,6 +37,17 @@ class SearchFormContainer extends Component {
     });
   };
 
+  handleSearch = async userInput => {
+    if (userInput && userInput.length > 2) {
+      this.getSuggestions();
+      this.setState({
+        filteredSuggestions: this.state.suggestions
+          .filter(suggestion => suggestion.searchterm.includes(userInput))
+          .slice(0, 4)
+      });
+    }
+  };
+
   handleClear = e => {
     e.preventDefault();
     this.setState({
@@ -56,11 +56,12 @@ class SearchFormContainer extends Component {
   };
 
   render() {
+    const { userInput, suggestions, filteredSuggestions } = this.state;
     return (
       <div className="form-container">
         <SearchForm
           className="search-form"
-          value={this.state.userInput}
+          value={userInput}
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
           onChange={this.handleChange}
@@ -70,9 +71,9 @@ class SearchFormContainer extends Component {
 
         <SearchList
           className="search-list"
-          value={this.state.userInput}
-          suggestions={this.state.suggestions}
-          filteredSuggestions={this.state.filteredSuggestions}
+          value={userInput}
+          suggestions={suggestions}
+          filteredSuggestions={filteredSuggestions}
         />
       </div>
     );
