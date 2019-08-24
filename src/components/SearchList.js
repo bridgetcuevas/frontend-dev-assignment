@@ -1,4 +1,5 @@
 import React from "react";
+import Highlighter from "react-highlight-words";
 import "../css/SearchList.css";
 
 const SearchList = ({
@@ -17,8 +18,14 @@ const SearchList = ({
               key={suggestion[valueProperty]}
               className={suggestions ? "search-li active" : "search-li"}
             >
-              <div className="search-items">
-                <div>{suggestion[textProperty]} </div>
+              <div className="search-terms">
+                <Highlighter
+                  highlightClassName="higlighted"
+                  activeIndex={-1}
+                  caseSensitive={false}
+                  searchWords={[value]}
+                  textToHighlight={suggestion[textProperty]}
+                />
                 <div className="nr-results"> ({suggestion[valueProperty]})</div>
               </div>
             </li>

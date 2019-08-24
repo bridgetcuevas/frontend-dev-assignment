@@ -18,35 +18,13 @@ class SearchFormContainer extends Component {
     this.setState({ suggestions: response.data.suggestions });
   };
 
-  async filterSuggestions(userInput) {
-    const regexLiteral = `(${userInput})(?![^<]*>|[^<>]*</)`;
-    const regexConstructor = new RegExp(regexLiteral, "i");
-
-    return await this.state.suggestions
-      .map(suggestion => {
-        return {
-          match: suggestion.searchterm.match(regexConstructor),
-          suggestion: suggestion
-        };
-      })
-      .filter(suggestion => suggestion.match !== null)
-      .slice(0, 4)
-      .map(matchedSuggestion => {
-        console.log("matchedSuggestion", matchedSuggestion.match[1]);
-        return {
-          startIndex: matchedSuggestion.match.index,
-          endIndex: matchedSuggestion.match.index + userInput.length,
-          searchterm: matchedSuggestion.match.input,
-          nrResults: matchedSuggestion.suggestion.nrResults
-        };
-      });
-  }
-
   handleSearch = async userInput => {
     if (userInput && userInput.length > 2) {
       this.getSuggestions();
       this.setState({
-        filteredSuggestions: await this.filterSuggestions(userInput)
+        filteredSuggestions: this.state.suggestions
+          .filter(suggestion => suggestion.searchterm.includes(userInput))
+          .slice(0, 4)
       });
     }
   };

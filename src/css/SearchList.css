@@ -17,12 +17,20 @@
   transition: max-height 1s ease-in-out;
 }
 
-.search-items {
+.search-terms {
   display: flex;
 }
 
-.nr-results {
+.nr-results,
+.higlighted {
   color: #777;
   font-weight: 500;
+}
+
+.nr-results {
   padding-left: 0.3em;
+}
+
+.higlighted {
+  background-color: transparent;
 }
