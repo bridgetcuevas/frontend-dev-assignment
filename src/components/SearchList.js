@@ -32,7 +32,9 @@ const SearchList = ({
 
 SearchList.defaultProps = {
   textProperty: "searchterm",
-  valueProperty: "nrResults"
+  valueProperty: "nrResults",
+  value: "",
+  filteredSuggestions:[]
 };
 
 export default SearchList;

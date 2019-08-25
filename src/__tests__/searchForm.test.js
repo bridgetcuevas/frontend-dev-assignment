@@ -1,7 +1,6 @@
 import React from "react";
 import SearchForm from "../components/SearchForm";
-import MdClose from "../../node_modules/react-ionicons/lib/MdClose";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 
 describe("search form test suite", () => {
   let props;
@@ -11,11 +10,12 @@ describe("search form test suite", () => {
     props = {
       value: "value",
       onFocus: jest.fn(() => "onFocus"),
+      onBlur: jest.fn(() => "onBlur"),
+      onKeyUp: jest.fn(() => "onKeyUp"),
       onChange: jest.fn(() => "onChange"),
-      onMouseDown: jest.fn(() => "onMouseDown"),
-      onBlur: jest.fn(() => "onBlur")
+      onMouseDown: jest.fn(() => "onMouseDown")
     };
-    wrapper = shallow(<SearchForm {...props} />);
+    wrapper = mount(<SearchForm {...props} />);
   });
 
   it("should render without crashing", () => {
@@ -43,25 +43,33 @@ describe("search form test suite", () => {
   });
 
   it("should render an icon with class md-close", () => {
-    expect(wrapper.find("MdClose.md-close")).toHaveLength(1);
+    expect(wrapper.find("MdClose")).toHaveLength(1);
   });
 
   it("should render an icon with class ios-search", () => {
-    expect(wrapper.find("IosSearch.ios-search")).toHaveLength(1);
+    expect(wrapper.find("IosSearch")).toHaveLength(1);
+  });
+
+  it("should call onFocus when input is seected followed by onBlur ", () => {
+    wrapper.find("input.search-input").simulate("focus");
+    expect(props.onFocus).toHaveBeenCalled();
+
+    wrapper.find("input.search-input").simulate("blur");
+    expect(props.onBlur).toHaveBeenCalled();
+  });
+
+  it("should call onChange when input is selected", () => {
+    wrapper.find("input.search-input").simulate("change");
+    expect(props.onChange).toHaveBeenCalled();
+  });
+
+  it("should call onKeyUp when input is selected", () => {
+    wrapper.find("input.search-input").simulate("keyup");
+    expect(props.onKeyUp).toHaveBeenCalled();
   });
 
   it("should call onMouseDown when clear-button is selected", () => {
-    const clearButton = wrapper.find("button.clear-button").first();
-    expect(clearButton.prop("children")).toEqual(
-      <MdClose className="md-close" color="#777" fontSize="19px" />
-    );
-    clearButton.simulate("mousedown");
+    wrapper.find("button.clear-button").simulate("mousedown");
     expect(props.onMouseDown).toHaveBeenCalled();
-  });
-
-  it("should call onFocus when form is selected", () => {
-    const input = wrapper.find("input.search-input").first();
-    input.simulate("focus");
-    expect(props.onFocus).toHaveBeenCalled();
   });
 });

@@ -39,7 +39,7 @@ class SearchFormContainer extends Component {
 
   handleSearch = async userInput => {
     if (userInput && userInput.length > 2) {
-      this.getSuggestions();
+      await this.getSuggestions();
       this.setState({
         filteredSuggestions: this.state.suggestions
           .filter(suggestion => suggestion.searchterm.includes(userInput))
@@ -48,7 +48,7 @@ class SearchFormContainer extends Component {
     }
   };
 
-  handleClear = e => {
+  handleClear = (e)=> {
     e.preventDefault();
     this.setState({
       userInput: ""

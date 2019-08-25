@@ -13,12 +13,13 @@
   },
   "devDependencies": {
     "@storybook/react": "3.4.3",
+    "axios-mock-adapter": "^1.17.0",
     "concurrently": "3.5.1",
-    "react-scripts": "1.1.4",
-    "react-test-renderer": "^16.9.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
-    "enzyme-to-json": "^3.4.0"
+    "enzyme-to-json": "^3.4.0",
+    "react-scripts": "1.1.4",
+    "react-test-renderer": "^16.9.0"
   },
   "scripts": {
     "start": "concurrently \"react-scripts start\" \"canned -p 5000 ./api/\"",
