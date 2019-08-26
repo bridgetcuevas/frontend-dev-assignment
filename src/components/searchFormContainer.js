@@ -12,10 +12,14 @@ class SearchFormContainer extends Component {
   };
 
   getSuggestions = async userInput => {
-    const response = await bijenkorfTruien.get("/search", {
-      params: { search: userInput }
-    });
-    this.setState({ suggestions: response.data.suggestions });
+    try {
+      const response = await bijenkorfTruien.get("/search", {
+        params: { search: userInput }
+      });
+      this.setState({ suggestions: response.data.suggestions });
+    } catch (err) {
+      throw err;
+    }
   };
 
   handleFocus = () => {
@@ -48,7 +52,7 @@ class SearchFormContainer extends Component {
     }
   };
 
-  handleClear = (e)=> {
+  handleClear = e => {
     e.preventDefault();
     this.setState({
       userInput: ""

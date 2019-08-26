@@ -61,10 +61,4 @@ describe("search form container test suite", () => {
     const change = instance.state.userInput;
     expect(change).toBe("sweater");
   });
-
-  // it("should mount component and onClear set state userInput to be an empty string", async () => {
-  //   await instance.handleClear("calvin");
-  //   const clear = instance.state.userInput;
-  //   expect(clear).toBe("");
-  // });
 });
