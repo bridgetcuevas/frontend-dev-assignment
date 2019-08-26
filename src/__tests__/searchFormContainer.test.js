@@ -32,6 +32,12 @@ describe("search form container test suite", () => {
     expect(suggestions.length).toBe(11);
   });
 
+  it("should mount component then search and filter query of tr/ 0 results should render", async () => {
+    await instance.getSuggestions("tr");
+    const filteredSuggestions = instance.state.filteredSuggestions;
+    expect(filteredSuggestions.length).toBe(0);
+  });
+
   it("should mount component then search and filter query of trui/ results should render a max of four suggestions", async () => {
     await instance.handleSearch("trui");
     const filteredSuggestions = instance.state.filteredSuggestions;

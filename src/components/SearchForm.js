@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types"
 import IosSearch from "../../node_modules/react-ionicons/lib/IosSearch";
 import MdClose from "../../node_modules/react-ionicons/lib/MdClose";
 import "../css/SearchForm.css";
@@ -47,6 +48,15 @@ const SearchForm = ({
       </div>
     </form>
   );
+};
+
+SearchForm.PropTypes = { 
+  value: PropTypes.string.isRequired,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onMouseDown: PropTypes.func,
+  onKeyUp: PropTypes.func
 };
 
 export default SearchForm;

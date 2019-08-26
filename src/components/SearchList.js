@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types"
 import Highlighter from "react-highlight-words";
 import "../css/SearchList.css";
 
@@ -33,8 +34,13 @@ const SearchList = ({
 SearchList.defaultProps = {
   textProperty: "searchterm",
   valueProperty: "nrResults",
-  value: "",
-  filteredSuggestions:[]
+};
+
+SearchList.PropTypes = { 
+  textProperty: PropTypes.string.isRequired,
+  valueProperty: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  filteredSuggestions: PropTypes.array.isRequired,
 };
 
 export default SearchList;
