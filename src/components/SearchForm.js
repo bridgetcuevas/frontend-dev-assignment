@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
 import IosSearch from "../../node_modules/react-ionicons/lib/IosSearch";
 import MdClose from "../../node_modules/react-ionicons/lib/MdClose";
 import "../css/SearchForm.css";
@@ -33,7 +33,7 @@ const SearchForm = ({
           onKeyUp={e => onKeyUp(e.currentTarget.value)}
         />
 
-        {value && (
+        {value && value.length && (
           <button
             type="button"
             className="clear-button"
@@ -50,7 +50,7 @@ const SearchForm = ({
   );
 };
 
-SearchForm.PropTypes = { 
+SearchForm.propTypes = {
   value: PropTypes.string.isRequired,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,

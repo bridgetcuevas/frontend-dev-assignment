@@ -37,8 +37,10 @@
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
       "!src/__tests__/**/*",
+      "!src/stories/**/*",
       "!src/index.js",
       "!src/registerServiceWorker.js"
+     
     ]
   },
   "proxy": "http://localhost:5000"
