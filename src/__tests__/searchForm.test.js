@@ -50,7 +50,7 @@ describe("search form test suite", () => {
     expect(wrapper.find("IosSearch")).toHaveLength(1);
   });
 
-  it("should call onFocus when input is seected followed by onBlur ", () => {
+  it("should call onFocus when input is selected followed by onBlur ", () => {
     wrapper.find("input.search-input").simulate("focus");
     expect(props.onFocus).toHaveBeenCalled();
 
