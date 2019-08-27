@@ -1,52 +1,35 @@
 ## de Bijenkorf Frontend Dev assignment
 
-This project allows de Bijenkorf to assess potential frontend candidates with real, working code.
+- This project utilizes React to asynchronously fetch data from a dummy backend API when queries are placed in a search form. 
+- A list of four search suggestions is displayed onKeyUp when a query is longer than two characters. 
+- onFocus the form becomes active.
+- onBlur the form becomes inactive and query input is cleared.
+- An additional form control is provided by a 'clear button' which is displayed only when there is query input. onMouseDown the button clears query input and the form remains active.
+- Test coverage/UI documentation is provided using Enzyme and Storybook.
 
-It is bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app) to give you the initial setup.
+## Contents
 
-If you are not familiar with Create React App you can find an up to date guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+1. **[Technologies Used](#technologies-used)**
+2. **[Start up](#start-up)**
+3. **[create-react-app-docs](#create-react-app)**
 
-## Exercises
+#### View samples within this project by clicking the links below
+## Technologies Used
 
-You will find the **exercises and associated instructions** in separate named folders(exercise-1, exercise-2, etc.) in the root of this project. **Follow the instructions in the folders and complete the exercises one by one**.
+- **[react](./src/components/SearchFormContainer.js)**
+- **[css](./src/css/SearchForm.css)**
+- **[axios](./src/services/bijenkorfTruien.js)**
+- **[enzyme](./src/__tests__/searchFormContainer.test.js)**
+- **[storybook](./src/stories/index.js)**
 
+## Start up
 
-## Folder Structure
+1. Install required dependencies using 'npm install'.
+2. Run this assignment in development mode using 'npm start'.
+3. After which you may run 'npm run test' or 'npm run coverage' for test coverage or 'npm run storybook' for UI documentation.
 
-The initial project structure looks like this:
+## Create React App
 
-```
-frontend-dev-assignment/
-  README.md
-  node_modules/
-  package.json
-  public/
-    index.html
-    favicon.ico
-    manifest.json
-  src/
-    App.js
-    App.test.js
-    index.css
-    index.js
-    registerServiceWorker.js
-```
+This project was scaffolded using the create-react-app cli. 
 
-You may create subdirectories inside `src`. For faster rebuilds, only files inside `src` are processed by Webpack.<br>
-
-## Notes
-If you have any remarks or observations while working on this assignment you are encouraged submit these along with the assignment preferably in the READ.ME file.
-
-## Submitting your code
-If you are completing this offsite please push your local working copy to a remote repository and mail us back the link <mailto:anja.rupnik@debijenkorf.nl> <mailto:chris.asteriou@debijenkorf.nl>
-
-Please contact us if you have any questions.
-```
-Anja Rupnik
-anja.rupnik@debijenkorf.nl
-
-Chris Asteriou
-chris.asteriou@debijenkorf.nl
-
-de Bijenkorf
-```
+**[The standard create-react-app docs can be found in here](./create-react-app-docs.md)**
