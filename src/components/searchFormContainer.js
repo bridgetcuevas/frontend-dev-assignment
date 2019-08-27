@@ -11,10 +11,11 @@ class SearchFormContainer extends Component {
     userInput: ""
   };
 
-  getSuggestions = async userInput => {
+  getSuggestions = async query => {
     try {
-      const response = await bijenkorfTruien.get("/search", {
-        params: { search: userInput }
+      const { userInput } = this.state;
+      const response = await bijenkorfTruien.get(`/search?q=${userInput}`, {
+        params: { search: query }
       });
       this.setState({ suggestions: response.data.suggestions });
     } catch (err) {
